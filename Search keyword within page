@@ -1,0 +1,21 @@
+tell application "Google Chrome"
+	
+	activate
+	
+	tell window 1 to make new tab
+	
+	set URL of active tab of window 1 to "http://linux.vbird.org/linux_basic/0340bashshell-scripts.php"
+	
+	--to prevent "cmd f" perform too fast
+	delay 1
+	
+	tell application "System Events"
+		tell process "Google Chrome"
+			keystroke "f" using command down
+			set content to "-f"
+			set the clipboard to content
+			keystroke "v" using command down
+		end tell
+	end tell
+	
+end tell
